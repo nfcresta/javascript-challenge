@@ -4,7 +4,7 @@ var tableData = data;
 // select table variable
 var tbody = d3.select("tbody");
 
-tbody.text();
+tbody.text("");
 
 // append data to the table
 tableData.forEach(ufoData => {
@@ -18,24 +18,25 @@ tableData.forEach(ufoData => {
     });
 });
 
-console.log("==================== Filtered Data =====================")
+console.log("===================== Filtered Data =====================")
 
 // Use a date form in your HTML document and write JavaScript code that will listen for events and search through the `date/time` column 
 // to find rows that match user input.
 
 var form = d3.select("form");
+var button = d3.select("#filter-btn");
 
-// event handler
+// event handlers
 form.on("submit", runEnter);
+button.on("click", runEnter);
 
-// complete event handler with a function
+// complete event handlers with a function
 function runEnter(){
+    // clear table so filtered data will show up
+    tbody.text("");
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
-
-    // clear table so filtered data will show up
-    tbody.text();
 
     // select input element
     var inputElement = d3.select("input");
@@ -57,3 +58,9 @@ function runEnter(){
         });
     });
 };
+
+
+// BONUS: UFO-Level 2
+var filterButton = d3.select("#filter-btn");
+
+
