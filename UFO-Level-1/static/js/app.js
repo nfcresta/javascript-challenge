@@ -4,6 +4,8 @@ var tableData = data;
 // select table variable
 var tbody = d3.select("tbody");
 
+tbody.text();
+
 // append data to the table
 tableData.forEach(ufoData => {
     console.log(ufoData);
@@ -33,7 +35,7 @@ function runEnter(){
     d3.event.preventDefault();
 
     // clear table so filtered data will show up
-    tbody.text("");
+    tbody.text();
 
     // select input element
     var inputElement = d3.select("input");
